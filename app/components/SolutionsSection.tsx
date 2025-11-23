@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 import { QrCode, Search, DollarSign, Shield, Zap, TrendingUp } from 'lucide-react';
 
 const solutions = [
@@ -52,27 +52,43 @@ const solutions = [
 export default function SolutionsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const [isMounted, setIsMounted] = useState(false);
+
+  const stars = useMemo(() => 
+    Array.from({ length: 100 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      duration: Math.random() * 3 + 2,
+      delay: Math.random() * 2,
+    })),
+    []
+  );
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <section className="py-24 bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
       {/* Animated Stars Background */}
       <div className="absolute inset-0">
-        {[...Array(100)].map((_, i) => (
+        {isMounted && stars.map((star) => (
           <motion.div
-            key={i}
+            key={star.id}
             className="absolute w-1 h-1 bg-white rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${star.left}%`,
+              top: `${star.top}%`,
             }}
             animate={{
               opacity: [0, 1, 0],
               scale: [0, 1, 0],
             }}
             transition={{
-              duration: Math.random() * 3 + 2,
+              duration: star.duration,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: star.delay,
             }}
           />
         ))}

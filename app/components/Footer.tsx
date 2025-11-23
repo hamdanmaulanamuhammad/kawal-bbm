@@ -1,10 +1,27 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect, useMemo } from 'react';
 import { Heart, Github, Linkedin, Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  const particles = useMemo(() => 
+    Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      duration: Math.random() * 5 + 5,
+    })),
+    []
+  );
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -42,20 +59,20 @@ export default function Footer() {
     <footer className="relative bg-gradient-to-b from-slate-900 via-blue-900 to-slate-950 text-white overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-10">
-        {[...Array(50)].map((_, i) => (
+        {isMounted && particles.map((particle) => (
           <motion.div
-            key={i}
+            key={particle.id}
             className="absolute w-1 h-1 bg-white rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
             }}
             animate={{
               y: ['0%', '100%'],
               opacity: [0, 1, 0],
             }}
             transition={{
-              duration: Math.random() * 5 + 5,
+              duration: particle.duration,
               repeat: Infinity,
               ease: 'linear',
             }}
@@ -133,7 +150,7 @@ export default function Footer() {
                         }}
                         className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
                       >
-                        {link.icon && <link.icon className="w-4 h-4" />}
+                        {'icon' in link && link.icon && <link.icon className="w-4 h-4" />}
                         {link.label}
                       </button>
                     ) : (
@@ -143,7 +160,7 @@ export default function Footer() {
                         target={link.href.startsWith('http') ? '_blank' : undefined}
                         rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                       >
-                        {link.icon && <link.icon className="w-4 h-4" />}
+                        {'icon' in link && link.icon && <link.icon className="w-4 h-4" />}
                         {link.label}
                       </Link>
                     )}

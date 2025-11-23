@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 import { Phone, AlertCircle, Send, CheckCircle2, ExternalLink } from 'lucide-react';
 
 export default function ReportSection() {
@@ -15,6 +15,25 @@ export default function ReportSection() {
   });
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  const backgroundOrbs = useMemo(() => 
+    Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      width: Math.random() * 300 + 50,
+      height: Math.random() * 300 + 50,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      yMove: Math.random() * 100 - 50,
+      xMove: Math.random() * 100 - 50,
+      duration: Math.random() * 10 + 10,
+    })),
+    []
+  );
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,23 +57,23 @@ export default function ReportSection() {
     <section id="report-section" className="py-24 bg-gradient-to-br from-red-600 via-orange-600 to-red-700 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+        {isMounted && backgroundOrbs.map((orb) => (
           <motion.div
-            key={i}
+            key={orb.id}
             className="absolute bg-white/5 rounded-full"
             style={{
-              width: Math.random() * 300 + 50,
-              height: Math.random() * 300 + 50,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              width: orb.width,
+              height: orb.height,
+              left: `${orb.left}%`,
+              top: `${orb.top}%`,
             }}
             animate={{
-              y: [0, Math.random() * 100 - 50, 0],
-              x: [0, Math.random() * 100 - 50, 0],
+              y: [0, orb.yMove, 0],
+              x: [0, orb.xMove, 0],
               scale: [1, 1.2, 1],
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: orb.duration,
               repeat: Infinity,
               ease: 'easeInOut',
             }}

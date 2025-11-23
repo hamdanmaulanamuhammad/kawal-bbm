@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 import { ChevronDown, Shield, Users, Building, Scale } from 'lucide-react';
 
 const analysisData = [
@@ -100,6 +100,21 @@ export default function RightsObligationsSection() {
   const isInView = useInView(ref, { once: false, amount: 0.2 });
   const [expandedCategory, setExpandedCategory] = useState<number | null>(null);
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  const particles = useMemo(() => 
+    Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      duration: Math.random() * 10 + 10,
+      delay: Math.random() * 5,
+    })),
+    []
+  );
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const toggleCategory = (index: number) => {
     setExpandedCategory(expandedCategory === index ? null : index);
@@ -115,21 +130,21 @@ export default function RightsObligationsSection() {
     <section className="py-24 bg-gradient-to-b from-slate-900 to-blue-900 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute inset-0 opacity-5">
-        {[...Array(30)].map((_, i) => (
+        {isMounted && particles.map((particle) => (
           <motion.div
-            key={i}
+            key={particle.id}
             className="absolute w-2 h-2 bg-white rounded-full"
             animate={{
               y: ['0vh', '100vh'],
               opacity: [0, 1, 0],
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 5,
+              delay: particle.delay,
             }}
             style={{
-              left: `${Math.random() * 100}%`,
+              left: `${particle.left}%`,
             }}
           />
         ))}
