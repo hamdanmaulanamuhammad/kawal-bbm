@@ -2,56 +2,71 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { User, Mail, Linkedin, Github, Pen, Palette, Code, Target } from 'lucide-react';
+import { User, Instagram, Pen, Palette, Code, Target } from 'lucide-react';
 
 const teamMembers = [
   {
-    name: 'Muhammad Rizki Firmansyah',
+    name: 'Amelia Ayuni Tri Cahyanti',
     role: 'Content Writer & Researcher',
     icon: Pen,
     avatar: '/avatars/member1.jpg',
     description: 'Bertanggung jawab atas riset mendalam dan penulisan konten edukatif tentang kasus BBM oplosan. Menganalisis data dari berbagai sumber untuk menghasilkan narasi yang informatif dan mudah dipahami.',
-    skills: ['Research', 'Content Writing', 'Data Analysis'],
     color: 'from-blue-600 to-cyan-600',
-    email: 'rizki@kawalbbm.id',
-    linkedin: '#',
-    github: '#',
+    instagram: '#',
   },
   {
-    name: 'Siti Aisyah Ramadhani',
-    role: 'UI/UX Designer',
-    icon: Palette,
+    name: 'Arga Adinata Athallah Pahlevi',
+    role: 'Web Developer',
+    icon: Code,
     avatar: '/avatars/member2.jpg',
     description: 'Merancang antarmuka yang intuitif dan pengalaman pengguna yang engaging untuk platform KawalBBM. Memastikan setiap elemen visual mendukung tujuan edukatif dan investigatif proyek.',
-    skills: ['UI Design', 'UX Research', 'Prototyping'],
     color: 'from-purple-600 to-pink-600',
-    email: 'aisyah@kawalbbm.id',
-    linkedin: '#',
-    github: '#',
+    instagram: 'https://www.instagram.com/adinata_arga',
   },
   {
-    name: 'Ahmad Fauzi Hakim',
-    role: 'Full-Stack Developer',
-    icon: Code,
+    name: 'Aisya Rahma Noor Haqiqoh',
+    role: 'Content Writer & Researcher',
+    icon: Pen,
     avatar: '/avatars/member3.jpg',
     description: 'Mengembangkan platform web dengan teknologi terkini, mengimplementasikan fitur interaktif dan memastikan performa optimal. Bertanggung jawab atas arsitektur teknis dan deployment aplikasi.',
-    skills: ['React', 'Next.js', 'TypeScript', 'Framer Motion'],
     color: 'from-green-600 to-emerald-600',
-    email: 'fauzi@kawalbbm.id',
-    linkedin: '#',
-    github: '#',
+    instagram: '#',
   },
   {
-    name: 'Dina Puspita Sari',
-    role: 'Project Strategist',
-    icon: Target,
+    name: 'Assyfa Nur Fathona',
+    role: 'Web Developer',
+    icon: Code,
     avatar: '/avatars/member4.jpg',
     description: 'Merumuskan strategi komunikasi dan kampanye edukasi untuk menjangkau masyarakat luas. Mengoordinasikan tim dan memastikan proyek tetap pada jalur yang tepat untuk mencapai tujuan sosial.',
-    skills: ['Strategic Planning', 'Communication', 'Project Management'],
     color: 'from-orange-600 to-red-600',
-    email: 'dina@kawalbbm.id',
-    linkedin: '#',
-    github: '#',
+    instagram: '#',
+  },
+  {
+    name: 'Ibanez Centivolia Ahista',
+    role: 'Content Writer & Researcher',
+    icon: Pen,
+    avatar: '/avatars/member5.jpg',
+    description: 'Menganalisis tren dan data terkait praktik BBM oplosan, menyusun laporan investigasi, dan memberikan rekomendasi strategis untuk pencegahan.',
+    color: 'from-teal-600 to-blue-600',
+    instagram: '#',
+  },
+  {
+    name: 'Husna Felisa Cahyani',
+    role: 'Web Developer',
+    icon: Code,
+    avatar: '/avatars/member6.jpg',
+    description: 'Menciptakan visual yang menarik dan informatif untuk kampanye edukasi, termasuk infografis, poster, dan materi promosi lainnya.',
+    color: 'from-pink-600 to-rose-600',
+    instagram: 'https://www.instagram.com/fel.cy',
+  },
+  {
+    name: 'Hamdan Maulana Muhammad',
+    role: 'Web Developer',
+    icon: Code,
+    avatar: '/avatars/member7.jpg',
+    description: 'Mengembangkan sistem backend yang robust, mengelola database, dan memastikan keamanan serta skalabilitas platform.',
+    color: 'from-indigo-600 to-purple-600',
+    instagram: '#',
   },
 ];
 
@@ -182,7 +197,7 @@ export default function AboutContent() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group relative"
               >
-                <div className="bg-slate-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-gray-200 overflow-hidden">
+                <div className="bg-slate-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-gray-200 overflow-hidden h-full flex flex-col">
                   {/* Background Gradient */}
                   <motion.div
                     className={`absolute inset-0 bg-linear-to-br ${member.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
@@ -209,40 +224,22 @@ export default function AboutContent() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-600 leading-relaxed mb-6 relative z-10">
+                  <p className="text-gray-600 leading-relaxed mb-6 relative z-10 flex-1">
                     {member.description}
                   </p>
 
-                  {/* Skills */}
-                  <div className="flex flex-wrap gap-2 mb-6 relative z-10">
-                    {member.skills.map((skill, skillIndex) => (
-                      <motion.span
-                        key={skillIndex}
-                        whileHover={{ scale: 1.1 }}
-                        className={`px-4 py-2 bg-linear-to-r ${member.color} text-white text-sm font-semibold rounded-full`}
-                      >
-                        {skill}
-                      </motion.span>
-                    ))}
-                  </div>
-
                   {/* Social Links */}
                   <div className="flex gap-3 relative z-10">
-                    {[
-                      { icon: Mail, href: `mailto:${member.email}` },
-                      { icon: Linkedin, href: member.linkedin },
-                      { icon: Github, href: member.github },
-                    ].map((social, socialIndex) => (
-                      <motion.a
-                        key={socialIndex}
-                        href={social.href}
-                        whileHover={{ scale: 1.2, rotate: 5 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-lg flex items-center justify-center transition-all"
-                      >
-                        <social.icon className="w-5 h-5 text-gray-700" />
-                      </motion.a>
-                    ))}
+                    <motion.a
+                      href={member.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="w-10 h-10 bg-gray-200 hover:bg-gray-300 rounded-lg flex items-center justify-center transition-all"
+                    >
+                      <Instagram className="w-5 h-5 text-gray-700" />
+                    </motion.a>
                   </div>
                 </div>
               </motion.div>

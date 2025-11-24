@@ -112,12 +112,12 @@ export default function ReportSection() {
               Temukan SPBU Mencurigakan?
             </h2>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Jangan diam! Laporkan ke Contact Center 136 Kementerian ESDM atau isi formulir 
-              di bawah ini. Setiap laporan Anda membantu melindungi jutaan pengguna kendaraan lainnya.
+              Temukan SPBU Mencurigakan? Laporkan melalui portal resmi Kementerian ESDM. 
+              Setiap laporan Anda membantu melindungi jutaan pengguna kendaraan lainnya.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="max-w-4xl mx-auto">
             {/* Left Side - Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -137,19 +137,21 @@ export default function ReportSection() {
                 >
                   <Phone className="w-10 h-10 text-red-600" />
                 </motion.div>
-                <h3 className="text-3xl font-bold text-white mb-4">Contact Center 136</h3>
+                <h3 className="text-3xl font-bold text-white mb-4">Contact Center ESDM</h3>
                 <p className="text-white/90 text-lg mb-6 leading-relaxed">
-                  Hubungi langsung Contact Center Kementerian ESDM untuk melaporkan 
-                  kasus BBM oplosan atau SPBU yang mencurigakan. Layanan tersedia 24/7.
+                  Laporkan kasus BBM oplosan atau SPBU yang mencurigakan melalui portal resmi Kementerian ESDM. 
+                  Layanan tersedia untuk melindungi hak konsumen dan kepentingan negara.
                 </p>
                 <motion.a
-                  href="tel:136"
+                  href="https://www.esdm.go.id"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center gap-3 px-8 py-4 bg-white text-red-600 font-bold rounded-xl shadow-xl hover:shadow-2xl transition-all"
                 >
-                  <Phone className="w-5 h-5" />
-                  Hubungi 136
+                  <ExternalLink className="w-5 h-5" />
+                  Laporkan ke ESDM
                 </motion.a>
               </motion.div>
 
@@ -190,147 +192,6 @@ export default function ReportSection() {
                 <span className="text-white font-semibold text-lg">Kunjungi Portal Resmi ESDM</span>
                 <ExternalLink className="w-6 h-6 text-white group-hover:translate-x-2 transition-transform" />
               </motion.a>
-            </motion.div>
-
-            {/* Right Side - Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              <div className="bg-white rounded-2xl p-8 shadow-2xl relative overflow-hidden">
-                {/* Success Message Overlay */}
-                <AnimatePresence>
-                  {isSubmitted && (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.8 }}
-                      className="absolute inset-0 bg-green-500 flex flex-col items-center justify-center z-20 rounded-2xl"
-                    >
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1, rotate: 360 }}
-                        transition={{ duration: 0.6, type: 'spring' }}
-                      >
-                        <CheckCircle2 className="w-24 h-24 text-white mb-4" />
-                      </motion.div>
-                      <h3 className="text-3xl font-bold text-white mb-2">Laporan Terkirim!</h3>
-                      <p className="text-white/90">Terima kasih atas partisipasi Anda</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                <h3 className="text-3xl font-bold text-gray-900 mb-6">Formulir Laporan</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Name Field */}
-                  <div className="relative">
-                    <motion.label
-                      animate={{
-                        y: focusedField === 'name' || formData.name ? -24 : 0,
-                        scale: focusedField === 'name' || formData.name ? 0.85 : 1,
-                        color: focusedField === 'name' ? '#2563eb' : '#6b7280',
-                      }}
-                      className="absolute left-4 top-4 pointer-events-none font-medium origin-left"
-                    >
-                      Nama Lengkap
-                    </motion.label>
-                    <motion.input
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      onFocus={() => setFocusedField('name')}
-                      onBlur={() => setFocusedField(null)}
-                      whileFocus={{ scale: 1.02 }}
-                      className="w-full px-4 py-4 pt-6 border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none transition-all"
-                      required
-                    />
-                  </div>
-
-                  {/* Phone Field */}
-                  <div className="relative">
-                    <motion.label
-                      animate={{
-                        y: focusedField === 'phone' || formData.phone ? -24 : 0,
-                        scale: focusedField === 'phone' || formData.phone ? 0.85 : 1,
-                        color: focusedField === 'phone' ? '#2563eb' : '#6b7280',
-                      }}
-                      className="absolute left-4 top-4 pointer-events-none font-medium origin-left"
-                    >
-                      Nomor Telepon
-                    </motion.label>
-                    <motion.input
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      onFocus={() => setFocusedField('phone')}
-                      onBlur={() => setFocusedField(null)}
-                      whileFocus={{ scale: 1.02 }}
-                      className="w-full px-4 py-4 pt-6 border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none transition-all"
-                      required
-                    />
-                  </div>
-
-                  {/* Location Field */}
-                  <div className="relative">
-                    <motion.label
-                      animate={{
-                        y: focusedField === 'location' || formData.location ? -24 : 0,
-                        scale: focusedField === 'location' || formData.location ? 0.85 : 1,
-                        color: focusedField === 'location' ? '#2563eb' : '#6b7280',
-                      }}
-                      className="absolute left-4 top-4 pointer-events-none font-medium origin-left"
-                    >
-                      Lokasi SPBU
-                    </motion.label>
-                    <motion.input
-                      type="text"
-                      value={formData.location}
-                      onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                      onFocus={() => setFocusedField('location')}
-                      onBlur={() => setFocusedField(null)}
-                      whileFocus={{ scale: 1.02 }}
-                      className="w-full px-4 py-4 pt-6 border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none transition-all"
-                      required
-                    />
-                  </div>
-
-                  {/* Description Field */}
-                  <div className="relative">
-                    <motion.label
-                      animate={{
-                        y: focusedField === 'description' || formData.description ? -24 : 0,
-                        scale: focusedField === 'description' || formData.description ? 0.85 : 1,
-                        color: focusedField === 'description' ? '#2563eb' : '#6b7280',
-                      }}
-                      className="absolute left-4 top-4 pointer-events-none font-medium origin-left"
-                    >
-                      Deskripsi Masalah
-                    </motion.label>
-                    <motion.textarea
-                      value={formData.description}
-                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                      onFocus={() => setFocusedField('description')}
-                      onBlur={() => setFocusedField(null)}
-                      whileFocus={{ scale: 1.02 }}
-                      rows={4}
-                      className="w-full px-4 py-4 pt-6 border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none transition-all resize-none"
-                      required
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <motion.button
-                    type="submit"
-                    whileHover={{ scale: 1.03, boxShadow: '0 20px 40px rgba(239, 68, 68, 0.4)' }}
-                    whileTap={{ scale: 0.97 }}
-                    className="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white font-bold py-4 rounded-xl shadow-xl flex items-center justify-center gap-3 text-lg"
-                  >
-                    <Send className="w-5 h-5" />
-                    Kirim Laporan
-                  </motion.button>
-                </form>
-              </div>
             </motion.div>
           </div>
         </div>
