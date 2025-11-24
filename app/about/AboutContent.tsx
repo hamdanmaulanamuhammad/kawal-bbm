@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import Image from "next/image";
 import { User, Instagram, Pen, Palette, Code, Target } from 'lucide-react';
 
 const teamMembers = [
@@ -9,7 +10,7 @@ const teamMembers = [
     name: 'Amelia Ayuni Tri Cahyanti',
     role: 'Content Writer & Researcher',
     icon: Pen,
-    avatar: '/avatars/member1.jpg',
+    avatar: '/images/amel.jpg',
     description: 'Bertanggung jawab atas riset mendalam dan penulisan konten edukatif tentang kasus BBM oplosan. Menganalisis data dari berbagai sumber untuk menghasilkan narasi yang informatif dan mudah dipahami.',
     color: 'from-blue-600 to-cyan-600',
     instagram: '#',
@@ -18,7 +19,7 @@ const teamMembers = [
     name: 'Arga Adinata Athallah Pahlevi',
     role: 'Web Developer',
     icon: Code,
-    avatar: '/avatars/member2.jpg',
+    avatar: '/images/arga.jpg',
     description: 'Merancang antarmuka yang intuitif dan pengalaman pengguna yang engaging untuk platform KawalBBM. Memastikan setiap elemen visual mendukung tujuan edukatif dan investigatif proyek.',
     color: 'from-purple-600 to-pink-600',
     instagram: 'https://www.instagram.com/adinata_arga',
@@ -27,7 +28,7 @@ const teamMembers = [
     name: 'Aisya Rahma Noor Haqiqoh',
     role: 'Content Writer & Researcher',
     icon: Pen,
-    avatar: '/avatars/member3.jpg',
+    avatar: '/images/aisya.jpg',
     description: 'Mengembangkan platform web dengan teknologi terkini, mengimplementasikan fitur interaktif dan memastikan performa optimal. Bertanggung jawab atas arsitektur teknis dan deployment aplikasi.',
     color: 'from-green-600 to-emerald-600',
     instagram: '#',
@@ -36,7 +37,7 @@ const teamMembers = [
     name: 'Assyfa Nur Fathona',
     role: 'Web Developer',
     icon: Code,
-    avatar: '/avatars/member4.jpg',
+    avatar: '/images/sifa.png',
     description: 'Merumuskan strategi komunikasi dan kampanye edukasi untuk menjangkau masyarakat luas. Mengoordinasikan tim dan memastikan proyek tetap pada jalur yang tepat untuk mencapai tujuan sosial.',
     color: 'from-orange-600 to-red-600',
     instagram: '#',
@@ -45,7 +46,7 @@ const teamMembers = [
     name: 'Ibanez Centivolia Ahista',
     role: 'Content Writer & Researcher',
     icon: Pen,
-    avatar: '/avatars/member5.jpg',
+    avatar: '/images/ibanez.jpg',
     description: 'Menganalisis tren dan data terkait praktik BBM oplosan, menyusun laporan investigasi, dan memberikan rekomendasi strategis untuk pencegahan.',
     color: 'from-teal-600 to-blue-600',
     instagram: '#',
@@ -54,7 +55,7 @@ const teamMembers = [
     name: 'Husna Felisa Cahyani',
     role: 'Web Developer',
     icon: Code,
-    avatar: '/avatars/member6.jpg',
+    avatar: '/images/cy.jpg',
     description: 'Menciptakan visual yang menarik dan informatif untuk kampanye edukasi, termasuk infografis, poster, dan materi promosi lainnya.',
     color: 'from-pink-600 to-rose-600',
     instagram: 'https://www.instagram.com/fel.cy',
@@ -63,7 +64,7 @@ const teamMembers = [
     name: 'Hamdan Maulana Muhammad',
     role: 'Web Developer',
     icon: Code,
-    avatar: '/avatars/member7.jpg',
+    avatar: '/images/hamdan.jpg',
     description: 'Mengembangkan sistem backend yang robust, mengelola database, dan memastikan keamanan serta skalabilitas platform.',
     color: 'from-indigo-600 to-purple-600',
     instagram: '#',
@@ -205,13 +206,22 @@ export default function AboutContent() {
 
                   {/* Avatar & Icon */}
                   <div className="flex items-start gap-6 mb-6 relative z-10">
-                    <motion.div
+                    {/* <motion.div
                       whileHover={{ rotate: 360, scale: 1.1 }}
                       transition={{ duration: 0.6 }}
                       className={`w-20 h-20 bg-linear-to-br ${member.color} rounded-2xl flex items-center justify-center shadow-xl shrink-0`}
                     >
                       <User className="w-10 h-10 text-white" />
-                    </motion.div>
+                    </motion.div> */}
+
+                    <div className="relative w-20 h-20 rounded-2xl overflow-hidden shadow-xl shrink-0">
+                      <Image
+                        src={member.avatar}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-1">
                         {member.name}
