@@ -12,12 +12,12 @@ const legalBasis = [
     color: 'from-blue-600 to-cyan-600',
     articles: [
       {
-        pasal: 'Pasal 23',
-        content: 'Setiap orang yang melakukan usaha Niaga tanpa Izin Usaha Niaga sebagaimana dimaksud dalam Pasal 11 ayat (1) dipidana dengan pidana penjara paling lama 5 (lima) tahun dan denda paling banyak Rp 50.000.000.000,00 (lima puluh miliar rupiah). Praktik BBM oplosan termasuk dalam kategori usaha niaga ilegal yang melanggar ketentuan izin usaha.',
+        pasal: 'Pasal 54',
+        content: 'Setiap orang yang meniru atau memalsukan Bahan Bakar Minyak dan Gas Bumi dan hasil olahan sebagaimana dimaksud dalam Pasal 28 ayat (1) dipidana dengan pidana penjara paling lama (enam) tahun dan denda paling tunggi Rp60.000.000.000,00 (enam puluh miliar rupiah).',
       },
       {
-        pasal: 'Pasal 53',
-        content: 'Bahan Bakar Minyak dan Bahan Bakar Gas yang dipasarkan di dalam negeri wajib memenuhi standar dan mutu yang ditetapkan. Pengoplosan BBM jelas melanggar standar mutu yang telah ditetapkan pemerintah dan membahayakan konsumen serta merusak mesin kendaraan.',
+        pasal: 'Pasal 55',
+        content: 'Setiap orang yang menyalahgunakan Pengangkutan dan/atau Niaga Barang Bahan Minyak yang disubsidi Pemerintah dipidana dengan pidana penjara paling lama 6 (enam) tahun dan denda paling tinggi Rp60.000.000.000,00 (enam puluh miliar rupiah).',
       },
     ],
   },
@@ -29,15 +29,46 @@ const legalBasis = [
     articles: [
       {
         pasal: 'Pasal 4',
-        content: 'Konsumen berhak atas kenyamanan, keamanan, dan keselamatan dalam mengkonsumsi barang dan/atau jasa. BBM oplosan melanggar hak dasar konsumen karena membahayakan keselamatan kendaraan dan berpotensi menimbulkan kerugian ekonomi yang besar bagi pemilik kendaraan.',
+        content: [
+          'Hak konsumen adalah: ',
+          'hak atas kenyamanan, keamanan, dan keselamatan dalam mengkonsumsi barang dan/atau jasa;',
+          'hak untuk memilih barang atau jasa serta mendapatkan barang dan/atau jasa tersebut sesuai dengan nilai tukar dan kondisi serta jaminan yang dijanjikan;',
+          'hak atas informasi yang benar, jelas, dan jujur mengenai kondisi dan jaminan barang dan/atau jasa;',
+          'hak untuk didengar pendapat dan keluhannya atas barang dan/atau jasa yang digunakan;',
+          'hak untuk mendapatkan advokasi, perlindungan, dan upaya penyelesaian sengketa perlindungan konsumen secara patut;',
+          'hak untuk mendapat pembinaan dan pendidikan konsumen;',
+          'hak untuk diperlakukan dan dilayani secara benar dan jujur serta tidak diskriminatif;',
+          'hak untuk mendapatkan kompensasi, ganti rugi dan/atau penggantian, apabila barang dan/atau jasa yang diterima tidak sesuai dengan perjanjian atau tidak sebagaimana mestinya;',
+          'hak-hak yang diatur dalam ketentuan peraturan perundang-undangan lainnya.',
+        ],
       },
       {
         pasal: 'Pasal 8 ayat (1)',
-        content: 'Pelaku usaha dilarang memproduksi dan/atau memperdagangkan barang dan/atau jasa yang tidak memenuhi atau tidak sesuai dengan standar yang dipersyaratkan dan ketentuan peraturan perundang-undangan. Praktik pencampuran BBM dengan bahan kimia berbahaya jelas melanggar pasal ini.',
+        content: [
+          'Pelaku usaha dilarang memproduksi dan/atau memperdagangkan barang dan/atau jasa yang: ',
+          'tidak memenuhi atau tidak sesuai dengan standar yang dipersyaratkan dan ketentuan peraturan perundang-undangan;',
+          'tidak sesuai dengan berat bersih, isi bersih atau netto, dan jumlah dalam hitungan sebagaimana yang dinyatakan dalam label atau etiket barang tersebut;',
+          'tidak sesuai dengan ukuran, takaran, timbangan dan jumlah dalam hitungan menurut ukuran yang sebenarnya;',
+          'tidak sesuai dengan kondisi, jaminan, keistimewaan atau kemanjuran sebagaimana dinyatakan dalam label, etiket atau keterangan barang dan/atau jasa tersebut;',
+          'tidak sesuai dengan mutu, tingkatan, komposisi, proses pengolahan, gaya, mode, atau penggunaan tertentu sebagaimana dinyatakan dalam label atau keterangan barang dan/atau jasa tersebut;',
+          'tidak sesuai dengan janji dinyatakan dalam label, etiket keterangan, iklan atau promosi penjualan barang dan/atau jasa tersebut;',
+          'tidak mencantumkan tanggal kadaluwarsa atau jangka waktu penggunaan/pemanfaatan yang paling baik atas barang tertentu;',
+          'tidak mengikuti ketentuan berproduksi secara halal, sebagaimana pernyataan "halal" yang dicantumkan dalam label;',
+          'tidak memasang label atau membuat penjelasan barang yang memuat nama barang, ukuran, berat/isi bersih atau netto, komposisi, aturan pakai, tanggal pembuatan, akibat sampingan, nama dan alamat pelaku usaha serta keterangan lain untuk penggunaan yang menurut ketentuan harus dipasang/dibuat;',
+          'tidak mencantumkan informasi dan/atau petunjuk penggunaan barang dalam bahasa Indonesia sesuai dengan ketentuan perundang-undangan yang berlaku.',
+        ],
       },
       {
-        pasal: 'Pasal 62',
-        content: 'Pelanggar dapat dipidana dengan pidana penjara paling lama 5 (lima) tahun atau pidana denda paling banyak Rp 2.000.000.000,00 (dua miliar rupiah). Sanksi ini berlaku bagi pelaku usaha yang menjual BBM tidak sesuai standar dan merugikan konsumen.',
+        pasal: 'Pasal 8 ayat (2)',
+        content: 'Pelaku usaha dilarang memperdagangkan barang yang rusak, cacat atau bekas, dan tercemar tanpa memberikan informasi secara lengkap dan benar atas barang dimaksud.'
+      },
+      {
+        pasal: 'Pasal 8 ayat (3)',
+        content: 'Pelaku usaha dilarang memperdagangkan sediaan farmasi dan pangan yang rusak, cacat atau bekas dan tercemar, dengan atau tanpa memberikan informasi secara lengkap dan benar.'
+      },
+      {
+        pasal: 'Pasal 8 ayat (4)',
+        content: 'Pelaku usaha yang melakukan pelanggaran pada ayat (1) dan ayat (2) dilarang memperdagangkan barang dan/atau jasa tersebut serta wajib menariknya dari peredaran.'
       },
     ],
   },
@@ -182,17 +213,29 @@ export default function LegalBasisSection() {
                                   <Book className="w-5 h-5 text-gray-400" />
                                 </div>
                                 <AnimatePresence>
-                                  {expandedArticle ===
-                                    `${lawIndex}-${articleIndex}` && (
-                                    <motion.p
+                                  {expandedArticle === `${lawIndex}-${articleIndex}` && (
+                                    <motion.div
                                       initial={{ height: 0, opacity: 0 }}
                                       animate={{ height: 'auto', opacity: 1 }}
                                       exit={{ height: 0, opacity: 0 }}
                                       transition={{ duration: 0.3 }}
                                       className="text-gray-700 leading-relaxed text-justify overflow-hidden"
                                     >
-                                      {article.content}
-                                    </motion.p>
+                                      {Array.isArray(article.content) ? (
+                                        <>
+                                          {/* Kalau item pertama adalah judul kalimat, tampilkan di atas */}
+                                          <p className="mb-2">{article.content[0]}</p>
+                                          <ol className="list-decimal pl-6 space-y-1">
+                                            {article.content.slice(1).map((item, idx) => (
+                                              <li key={idx}>{item}</li>
+                                            ))}
+                                          </ol>
+                                        </>
+                                      ) : (
+                                        // Untuk content yang masih string (UU 22/2001)
+                                        <p>{article.content}</p>
+                                      )}
+                                    </motion.div>
                                   )}
                                 </AnimatePresence>
                                 {expandedArticle !==
@@ -224,39 +267,6 @@ export default function LegalBasisSection() {
             </motion.div>
           ))}
         </div>
-
-        {/* Summary Box */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 max-w-4xl mx-auto bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl p-8 md:p-12 text-white shadow-2xl"
-        >
-          <div className="flex items-start gap-6">
-            <motion.div
-              animate={{
-                rotate: [0, 10, -10, 0],
-                scale: [1, 1.1, 1],
-              }}
-              transition={{ duration: 4, repeat: Infinity }}
-            >
-              <Scale className="w-16 h-16 shrink-0" />
-            </motion.div>
-            <div>
-              <h3 className="text-3xl font-bold mb-4">Sanksi Maksimal</h3>
-              <p className="text-white/90 text-lg leading-relaxed mb-4">
-                Pelaku BBM oplosan dapat dijerat dengan hukuman kombinasi dari kedua undang-undang 
-                di atas, dengan ancaman maksimal <span className="font-bold">6 tahun penjara</span> dan 
-                denda hingga <span className="font-bold">Rp 50 miliar</span>. Selain sanksi pidana, 
-                izin usaha SPBU akan dicabut permanen dan aset dapat disita negara.
-              </p>
-              <p className="text-white/90 text-lg leading-relaxed">
-                Penegakan hukum yang konsisten dan tegas adalah kunci untuk memberikan efek jera 
-                dan melindungi hak konsumen serta kepentingan negara.
-              </p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
