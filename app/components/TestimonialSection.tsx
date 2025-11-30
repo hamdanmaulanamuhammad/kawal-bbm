@@ -6,25 +6,18 @@ import { Quote, ChevronLeft, ChevronRight, User } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Andi Prasetyo',
-    role: 'Mahasiswa Teknik Mesin, Universitas Indonesia',
+    name: 'Ameliana Hardianti',
+    role: 'Mahasiswa Teknologi Informasi 2023, Universitas Gadjah Mada',
     avatar: '/avatars/student1.jpg',
-    testimony: 'Sebagai mahasiswa teknik, saya sangat prihatin melihat praktik BBM oplosan yang merusak mesin kendaraan. Dari sudut pandang teknis, campuran bahan kimia berbahaya dalam BBM dapat menyebabkan kerusakan permanen pada sistem injeksi, karburator, dan komponen mesin lainnya. Biaya perbaikan yang harus ditanggung masyarakat jauh lebih besar dibanding keuntungan sesaat yang diraih pelaku. Ini bukan hanya soal ekonomi, tapi juga tanggung jawab moral kita terhadap keselamatan publik.',
+    testimony: 'Menurut saya, hak warga negara atas BBM yang aman belum sepenuhnya terpenuhi. Ini miris karena rakyat kecil (contohnya pengemudi ojek atau nelayan) adalah pihak yang paling menanggung kerugian kerusakan mesin yang merupakan alat nafkah utama mereka. Membebankan tanggung jawab pencegahan sepenuhnya kepada masyarakat sebenarnya tidak adil karena itu tugas negara dan aparat. Keterlibatan kita semestinya lahir murni dari rasa solidaritas kemanusiaan. Kita harus saling mengingatkan dan berani bersuara untuk melindungi sesama saudara sebangsa agar tidak terus-menerus menjadi korban dari ketidakberdayaan sistem yang ada. Juga jangan takut melapor ke pihak berwajib bila menemukan oknum pengoplos bensin.',
     color: 'from-blue-500 to-cyan-500',
   },
   {
-    name: 'Siti Nurhaliza',
-    role: 'Mahasiswa Hukum, Universitas Gadjah Mada',
+    name: 'Aditya rangga Wardana',
+    role: 'Mahasiswa Departement Teknik Mesin, Universitas Gadjah Mada',
     avatar: '/avatars/student2.jpg',
-    testimony: 'Dari perspektif hukum, BBM oplosan adalah pelanggaran serius yang melanggar UU 22 Tahun 2001 tentang Minyak dan Gas Bumi serta UU 8 Tahun 1999 tentang Perlindungan Konsumen. Pelaku dapat dijerat dengan hukuman hingga 6 tahun penjara dan denda miliaran rupiah. Namun, penegakan hukum harus konsisten dan tegas agar memberikan efek jera. Masyarakat juga perlu aktif melaporkan praktik ini melalui jalur resmi yang telah disediakan pemerintah.',
+    testimony: 'Pemenuhan hak warga negara untuk mendapatkan BBM yang aman dan sesuai standar masih belum optimal. Masih adanya praktik pengoplosan menunjukkan lemahnya pengawasan dan celah distribusi yang belum tertutup. Di sisi lain, masyarakat juga memiliki peran penting: tidak mendukung penjualan ilegal, menolak praktik seperti `titip beli`, serta mematuhi aturan pembelian BBM subsidi. Misalnya melalui sistem barcode MyPertamina. Dengan keterlibatan aktif masyarakat dalam melapor dan mengikuti mekanisme resmi, pengawasan kualitas BBM dapat menjadi lebih kuat.',
     color: 'from-purple-500 to-pink-500',
-  },
-  {
-    name: 'Dr. Budi Santoso, S.E., M.M.',
-    role: 'Dosen Ekonomi Energi, Institut Teknologi Bandung',
-    avatar: '/avatars/professor.jpg',
-    testimony: 'Dari analisis ekonomi, dampak BBM oplosan sangat masif dan multidimensi. Kerugian negara mencapai triliunan rupiah per tahun akibat subsidi yang disalahgunakan. Lebih jauh, praktik ini menciptakan distorsi pasar yang merugikan pelaku usaha jujur dan menghancurkan kepercayaan konsumen. Diperlukan reformasi struktural dalam sistem pengawasan distribusi BBM, termasuk digitalisasi rantai pasok dengan teknologi blockchain dan QR code untuk memastikan transparansi dari hulu ke hilir. Tanpa langkah tegas, negara akan terus mengalami kebocoran ekonomi yang menggerus anggaran pembangunan.',
-    color: 'from-green-500 to-emerald-500',
   },
 ];
 

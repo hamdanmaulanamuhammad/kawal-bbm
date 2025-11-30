@@ -1,72 +1,80 @@
-'use client';
+"use client";
 
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { User, Instagram, Pen, Palette, Code, Target } from 'lucide-react';
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import Image from "next/image";
+import { User, Instagram, Pen, Palette, Code, Target } from "lucide-react";
 
 const teamMembers = [
   {
-    name: 'Amelia Ayuni Tri Cahyanti',
-    role: 'Content Writer & Researcher',
+    name: "Amelia Ayuni Tri Cahyanti",
+    role: "Content Writer & Researcher",
     icon: Pen,
-    avatar: '/avatars/member1.jpg',
-    description: 'Bertanggung jawab atas riset mendalam dan penulisan konten edukatif tentang kasus BBM oplosan. Menganalisis data dari berbagai sumber untuk menghasilkan narasi yang informatif dan mudah dipahami.',
-    color: 'from-blue-600 to-cyan-600',
-    instagram: '#',
+    avatar: "/images/amel.jpg",
+    description:
+      "Bertanggung jawab atas riset mendalam dan penulisan konten edukatif tentang kasus BBM oplosan. Menganalisis data dari berbagai sumber untuk menghasilkan narasi yang informatif dan mudah dipahami.",
+    color: "from-blue-600 to-cyan-600",
+    instagram: "https://www.instagram.com/amewng_/",
   },
   {
-    name: 'Arga Adinata Athallah Pahlevi',
-    role: 'Web Developer',
+    name: "Arga Adinata Athallah Pahlevi",
+    role: "Web Developer",
     icon: Code,
-    avatar: '/avatars/member2.jpg',
-    description: 'Merancang antarmuka yang intuitif dan pengalaman pengguna yang engaging untuk platform KawalBBM. Memastikan setiap elemen visual mendukung tujuan edukatif dan investigatif proyek.',
-    color: 'from-purple-600 to-pink-600',
-    instagram: 'https://www.instagram.com/adinata_arga',
+    avatar: "/images/arga.jpg",
+    description:
+      "Merancang antarmuka yang intuitif dan pengalaman pengguna yang engaging untuk platform KawalBBM. Memastikan setiap elemen visual mendukung tujuan edukatif dan investigatif proyek.",
+    color: "from-purple-600 to-pink-600",
+    instagram: "https://www.instagram.com/adinata_arga",
   },
   {
-    name: 'Aisya Rahma Noor Haqiqoh',
-    role: 'Content Writer & Researcher',
+    name: "Aisya Rahma Noor Haqiqoh",
+    role: "Content Writer & Researcher",
     icon: Pen,
-    avatar: '/avatars/member3.jpg',
-    description: 'Mengembangkan platform web dengan teknologi terkini, mengimplementasikan fitur interaktif dan memastikan performa optimal. Bertanggung jawab atas arsitektur teknis dan deployment aplikasi.',
-    color: 'from-green-600 to-emerald-600',
-    instagram: '#',
+    avatar: "/images/aisya.jpg",
+    description:
+      "Mengembangkan platform web dengan teknologi terkini, mengimplementasikan fitur interaktif dan memastikan performa optimal. Bertanggung jawab atas arsitektur teknis dan deployment aplikasi.",
+    color: "from-green-600 to-emerald-600",
+    instagram: "https://www.instagram.com/aisyrnh",
   },
   {
-    name: 'Assyfa Nur Fathona',
-    role: 'Web Developer',
+    name: "Assyfa Nur Fathona",
+    role: "Web Developer",
     icon: Code,
-    avatar: '/avatars/member4.jpg',
-    description: 'Merumuskan strategi komunikasi dan kampanye edukasi untuk menjangkau masyarakat luas. Mengoordinasikan tim dan memastikan proyek tetap pada jalur yang tepat untuk mencapai tujuan sosial.',
-    color: 'from-orange-600 to-red-600',
-    instagram: '#',
+    avatar: "/images/sifa.png",
+    description:
+      "Merumuskan strategi komunikasi dan kampanye edukasi untuk menjangkau masyarakat luas. Mengoordinasikan tim dan memastikan proyek tetap pada jalur yang tepat untuk mencapai tujuan sosial.",
+    color: "from-orange-600 to-red-600",
+    instagram: "#",
   },
   {
-    name: 'Ibanez Centivolia Ahista',
-    role: 'Content Writer & Researcher',
+    name: "Ibanez Centivolia Ahista",
+    role: "Content Writer & Researcher",
     icon: Pen,
-    avatar: '/avatars/member5.jpg',
-    description: 'Menganalisis tren dan data terkait praktik BBM oplosan, menyusun laporan investigasi, dan memberikan rekomendasi strategis untuk pencegahan.',
-    color: 'from-teal-600 to-blue-600',
-    instagram: '#',
+    avatar: "/images/ibanez.jpg",
+    description:
+      "Menganalisis tren dan data terkait praktik BBM oplosan, menyusun laporan investigasi, dan memberikan rekomendasi strategis untuk pencegahan.",
+    color: "from-teal-600 to-blue-600",
+    instagram: "#",
   },
   {
-    name: 'Husna Felisa Cahyani',
-    role: 'Web Developer',
+    name: "Husna Felisa Cahyani",
+    role: "Web Developer",
     icon: Code,
-    avatar: '/avatars/member6.jpg',
-    description: 'Menciptakan visual yang menarik dan informatif untuk kampanye edukasi, termasuk infografis, poster, dan materi promosi lainnya.',
-    color: 'from-pink-600 to-rose-600',
-    instagram: 'https://www.instagram.com/fel.cy',
+    avatar: "/images/cy.jpg",
+    description:
+      "Menciptakan visual yang menarik dan informatif untuk kampanye edukasi, termasuk infografis, poster, dan materi promosi lainnya.",
+    color: "from-pink-600 to-rose-600",
+    instagram: "https://www.instagram.com/fel.cy",
   },
   {
-    name: 'Hamdan Maulana Muhammad',
-    role: 'Web Developer',
+    name: "Hamdan Maulana Muhammad",
+    role: "Web Developer",
     icon: Code,
-    avatar: '/avatars/member7.jpg',
-    description: 'Mengembangkan sistem backend yang robust, mengelola database, dan memastikan keamanan serta skalabilitas platform.',
-    color: 'from-indigo-600 to-purple-600',
-    instagram: '#',
+    avatar: "/images/hamdan.jpg",
+    description:
+      "Mengembangkan sistem backend yang robust, mengelola database, dan memastikan keamanan serta skalabilitas platform.",
+    color: "from-indigo-600 to-purple-600",
+    instagram: "#",
   },
 ];
 
@@ -85,13 +93,13 @@ export default function AboutContent() {
               key={i}
               className="absolute w-2 h-2 bg-white/20 rounded-full"
               animate={{
-                y: ['0vh', '100vh'],
+                y: ["0vh", "100vh"],
                 opacity: [0, 1, 0],
               }}
               transition={{
                 duration: Math.random() * 10 + 5,
                 repeat: Infinity,
-                ease: 'linear',
+                ease: "linear",
                 delay: Math.random() * 5,
               }}
               style={{
@@ -111,7 +119,7 @@ export default function AboutContent() {
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ duration: 0.5, type: 'spring' }}
+              transition={{ duration: 0.5, type: "spring" }}
               className="inline-block px-6 py-2 bg-blue-600/30 border-2 border-blue-500 text-blue-300 rounded-full font-semibold mb-6 backdrop-blur-sm"
             >
               TENTANG KAMI
@@ -120,9 +128,10 @@ export default function AboutContent() {
               Kenali Tim di Balik KawalBBM
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed">
-              Kami adalah sekelompok mahasiswa yang berkomitmen untuk memberantas praktik BBM oplosan 
-              melalui edukasi, transparansi, dan pemberdayaan masyarakat. Bersama-sama, kita bisa 
-              melindungi hak konsumen dan kepentingan negara.
+              Kami adalah sekelompok mahasiswa yang berkomitmen untuk
+              memberantas praktik BBM oplosan melalui edukasi, transparansi, dan
+              pemberdayaan masyarakat. Bersama-sama, kita bisa melindungi hak
+              konsumen dan kepentingan negara.
             </p>
           </motion.div>
         </div>
@@ -142,10 +151,13 @@ export default function AboutContent() {
               <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
                 <Target className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Visi Kami</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                Visi Kami
+              </h3>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Menjadi platform edukasi terpercaya yang mengubah kesadaran masyarakat tentang bahaya 
-                BBM oplosan dan mendorong transparansi penuh dalam distribusi bahan bakar minyak di Indonesia.
+                Menjadi platform edukasi terpercaya yang mengubah kesadaran
+                masyarakat tentang bahaya BBM oplosan dan mendorong transparansi
+                penuh dalam distribusi bahan bakar minyak di Indonesia.
               </p>
             </motion.div>
 
@@ -159,10 +171,13 @@ export default function AboutContent() {
               <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
                 <Target className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Misi Kami</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                Misi Kami
+              </h3>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Menyediakan informasi akurat dan komprehensif tentang BBM oplosan, memfasilitasi pelaporan 
-                kasus, serta mendorong partisipasi aktif masyarakat dalam pengawasan kualitas BBM untuk 
+                Menyediakan informasi akurat dan komprehensif tentang BBM
+                oplosan, memfasilitasi pelaporan kasus, serta mendorong
+                partisipasi aktif masyarakat dalam pengawasan kualitas BBM untuk
                 melindungi kepentingan konsumen dan negara.
               </p>
             </motion.div>
@@ -183,7 +198,8 @@ export default function AboutContent() {
               Tim KawalBBM
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Mahasiswa berdedikasi yang bekerja untuk menciptakan perubahan positif
+              Mahasiswa berdedikasi yang bekerja untuk menciptakan perubahan
+              positif
             </p>
           </motion.div>
 
@@ -205,20 +221,31 @@ export default function AboutContent() {
 
                   {/* Avatar & Icon */}
                   <div className="flex items-start gap-6 mb-6 relative z-10">
-                    <motion.div
+                    {/* <motion.div
                       whileHover={{ rotate: 360, scale: 1.1 }}
                       transition={{ duration: 0.6 }}
                       className={`w-20 h-20 bg-linear-to-br ${member.color} rounded-2xl flex items-center justify-center shadow-xl shrink-0`}
                     >
                       <User className="w-10 h-10 text-white" />
-                    </motion.div>
+                    </motion.div> */}
+
+                    <div className="relative w-20 h-20 rounded-2xl overflow-hidden shadow-xl shrink-0">
+                      <Image
+                        src={member.avatar}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-1">
                         {member.name}
                       </h3>
                       <div className="flex items-center gap-2 mb-3">
                         <member.icon className="w-5 h-5 text-gray-500" />
-                        <p className="text-gray-600 font-semibold">{member.role}</p>
+                        <p className="text-gray-600 font-semibold">
+                          {member.role}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -262,12 +289,16 @@ export default function AboutContent() {
               Mari Bergabung dalam Gerakan Ini
             </h2>
             <p className="text-xl text-white/90 mb-8 leading-relaxed">
-              Bersama-sama kita bisa memberantas BBM oplosan dan melindungi kepentingan rakyat. 
-              Setiap laporan Anda sangat berarti untuk menciptakan Indonesia yang lebih baik.
+              Bersama-sama kita bisa memberantas BBM oplosan dan melindungi
+              kepentingan rakyat. Setiap laporan Anda sangat berarti untuk
+              menciptakan Indonesia yang lebih baik.
             </p>
             <motion.a
               href="/"
-              whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255,255,255,0.5)' }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 40px rgba(255,255,255,0.5)",
+              }}
               whileTap={{ scale: 0.95 }}
               className="inline-block px-10 py-4 bg-white text-blue-600 font-bold rounded-full text-lg shadow-2xl"
             >

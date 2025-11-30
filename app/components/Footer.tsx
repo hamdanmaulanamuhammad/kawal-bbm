@@ -92,13 +92,8 @@ export default function Footer() {
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-3 mb-6"
             >
-              <div className="w-14 h-14 bg-gradient-to-br from-red-600 to-blue-600 rounded-xl flex items-center justify-center shadow-2xl">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-                >
-                  <Heart className="w-7 h-7 text-white" />
-                </motion.div>
+              <div className="w-12 h-12">
+                  <img src="/images/logo.png" alt="Logo" className="w-full h-full object-contain" />
               </div>
               <div>
                 <h3 className="text-2xl font-bold">KawalBBM</h3>

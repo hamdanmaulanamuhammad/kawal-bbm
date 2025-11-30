@@ -52,13 +52,9 @@ export default function Navigation() {
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-3 cursor-pointer"
               >
-                <motion.div
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                  className="w-12 h-12 bg-gradient-to-br from-red-600 to-blue-600 rounded-xl flex items-center justify-center shadow-lg"
-                >
-                  <AlertCircle className="w-7 h-7 text-white" />
-                </motion.div>
+                <div className="w-12 h-12">
+                  <img src="/images/logo.png" alt="Logo" className="w-full h-full object-contain" />
+                </div>
                 <div>
                   <h1 className={`text-2xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
                     KawalBBM
