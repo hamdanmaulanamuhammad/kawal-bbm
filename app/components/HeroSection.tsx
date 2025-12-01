@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown, AlertTriangle } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 
 export default function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -10,6 +10,19 @@ export default function HeroSection() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 200]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
+  const particles = useMemo(() => {
+    if (typeof window === 'undefined') return [];
+    return Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      opacity: Math.random() * 0.5,
+      yEnd: Math.random() * window.innerHeight,
+      opacityMid: Math.random() * 0.5,
+      duration: Math.random() * 10 + 10,
+    }));
+  }, [mounted]);
 
   useEffect(() => {
     setMounted(true);
@@ -36,21 +49,21 @@ export default function HeroSection() {
       {/* Animated Background Particles */}
       {mounted && (
         <div className="absolute inset-0">
-          {[...Array(50)].map((_, i) => (
+          {particles.map((particle) => (
             <motion.div
-              key={i}
+              key={particle.id}
               className="absolute w-1 h-1 bg-blue-400 rounded-full"
               initial={{
-                x: typeof window !== 'undefined' ? Math.random() * window.innerWidth : 0,
-                y: typeof window !== 'undefined' ? Math.random() * window.innerHeight : 0,
-                opacity: Math.random() * 0.5,
+                x: particle.x,
+                y: particle.y,
+                opacity: particle.opacity,
               }}
               animate={{
-                y: [null, typeof window !== 'undefined' ? Math.random() * window.innerHeight : 1000],
-                opacity: [null, Math.random() * 0.5, 0],
+                y: [null, particle.yEnd],
+                opacity: [null, particle.opacityMid, 0],
               }}
               transition={{
-                duration: Math.random() * 10 + 10,
+                duration: particle.duration,
                 repeat: Infinity,
                 ease: 'linear',
               }}

@@ -51,7 +51,7 @@ const solutions = [
 
 export default function SolutionsSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const isInView = useInView(ref, { once: false, amount: 0.1 });
   const [isMounted, setIsMounted] = useState(false);
 
   const stars = useMemo(() => 
@@ -70,7 +70,7 @@ export default function SolutionsSection() {
   }, []);
 
   return (
-    <section className="py-24 bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
+    <section id="solutions" className="py-24 bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
       {/* Animated Stars Background */}
       <div className="absolute inset-0">
         {isMounted && stars.map((star) => (
@@ -97,7 +97,7 @@ export default function SolutionsSection() {
       <div ref={ref} className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
@@ -124,39 +124,35 @@ export default function SolutionsSection() {
           {solutions.map((solution, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50, rotateY: -30 }}
-              animate={isInView ? { opacity: 1, y: 0, rotateY: 0 } : {}}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ 
-                duration: 0.8, 
-                delay: index * 0.15,
-                type: 'spring',
-                stiffness: 100
+                duration: 0.6, 
+                delay: index * 0.1,
               }}
               whileHover={{ 
                 scale: 1.05,
-                rotateY: 5,
-                z: 50,
                 transition: { duration: 0.3 }
               }}
-              className="group perspective-1000"
+              className="group"
             >
-              <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border-2 border-white/10 hover:border-white/30 transition-all duration-300 h-full transform-style-3d">
+              <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border-2 border-white/10 hover:border-white/30 transition-all duration-300 h-full">
                 {/* Glowing Background Effect */}
                 <motion.div
-                  className={`absolute inset-0 bg-linear-to-br ${solution.color} opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-300 blur-xl`}
+                  className={`absolute inset-0 bg-gradient-to-br ${solution.color} opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-300 blur-xl`}
                 />
 
                 {/* Icon */}
                 <motion.div
                   whileHover={{ rotate: 360, scale: 1.2 }}
                   transition={{ duration: 0.8 }}
-                  className={`w-20 h-20 bg-linear-to-br ${solution.color} rounded-2xl flex items-center justify-center mb-6 shadow-2xl relative z-10`}
+                  className={`w-20 h-20 bg-gradient-to-br ${solution.color} rounded-2xl flex items-center justify-center mb-6 shadow-2xl relative z-10`}
                 >
                   <solution.icon className="w-10 h-10 text-white" />
                 </motion.div>
 
                 {/* Title */}
-                <h3 className="text-2xl font-bold text-white mb-4 relative z-10 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300">
+                <h3 className="text-2xl font-bold text-white mb-4 relative z-10 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300">
                   {solution.title}
                 </h3>
 
@@ -170,7 +166,7 @@ export default function SolutionsSection() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.15 + 0.5 }}
-                  className={`inline-flex items-center gap-2 px-4 py-2 bg-linear-to-r ${solution.color} rounded-full text-white text-sm font-semibold relative z-10`}
+                  className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${solution.color} rounded-full text-white text-sm font-semibold relative z-10`}
                 >
                   <TrendingUp className="w-4 h-4" />
                   {solution.impact}
@@ -178,7 +174,7 @@ export default function SolutionsSection() {
 
                 {/* Animated Border */}
                 <motion.div
-                  className={`absolute inset-0 rounded-2xl bg-linear-to-r ${solution.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                  className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${solution.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
                   style={{
                     padding: '2px',
                     WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
@@ -193,9 +189,9 @@ export default function SolutionsSection() {
 
         {/* Call to Action */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-20 text-center"
         >
           <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-600/20 to-purple-600/20 border-2 border-blue-500/50 rounded-2xl p-8 md:p-12 backdrop-blur-lg">

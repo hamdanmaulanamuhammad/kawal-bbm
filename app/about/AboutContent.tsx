@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useMemo, useState, useEffect } from "react";
 import Image from "next/image";
 import { User, Instagram, Pen, Palette, Code, Target } from "lucide-react";
 
@@ -81,6 +81,21 @@ const teamMembers = [
 export default function AboutContent() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const particles = useMemo(() => 
+    Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      duration: Math.random() * 10 + 5,
+      delay: Math.random() * 5,
+    })),
+    []
+  );
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -88,22 +103,22 @@ export default function AboutContent() {
       <section className="relative py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0">
-          {[...Array(30)].map((_, i) => (
+          {isMounted && particles.map((particle) => (
             <motion.div
-              key={i}
+              key={particle.id}
               className="absolute w-2 h-2 bg-white/20 rounded-full"
               animate={{
                 y: ["0vh", "100vh"],
                 opacity: [0, 1, 0],
               }}
               transition={{
-                duration: Math.random() * 10 + 5,
+                duration: particle.duration,
                 repeat: Infinity,
                 ease: "linear",
-                delay: Math.random() * 5,
+                delay: particle.delay,
               }}
               style={{
-                left: `${Math.random() * 100}%`,
+                left: `${particle.left}%`,
               }}
             />
           ))}

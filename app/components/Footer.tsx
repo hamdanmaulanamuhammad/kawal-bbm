@@ -184,7 +184,7 @@ export default function Footer() {
               viewport={{ once: true }}
               className="text-gray-400 text-center md:text-left"
             >
-              © 2024 KawalBBM. Dibuat dengan{' '}
+              © 2025 KawalBBM. Dibuat dengan{' '}
               <motion.span
                 animate={{ scale: [1, 1.3, 1] }}
                 transition={{ duration: 1, repeat: Infinity }}

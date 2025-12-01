@@ -22,7 +22,7 @@ export const NewsEmbedWidget = ({
   url,
 }: NewsEmbedWidgetProps) => {
   return (
-    <div className="bg-card rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col">
+    <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col">
       {imageUrl && (
         <div className="w-full h-40 overflow-hidden">
           <img
@@ -45,17 +45,17 @@ export const NewsEmbedWidget = ({
         </div>
 
         {/* Judul */}
-        <h3 className="text-lg font-bold text-foreground mb-2 line-clamp-2">
+        <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
           {title}
         </h3>
 
         {/* Excerpt */}
-        <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+        <p className="text-sm text-gray-600 mb-4 line-clamp-3">
           {excerpt}
         </p>
 
         {/* Meta tanggal */}
-        <div className="mt-auto flex items-center justify-between text-xs text-muted-foreground mb-4">
+        <div className="mt-auto flex items-center justify-between text-xs text-gray-500 mb-4">
           <div className="flex items-center gap-2">
             <Calendar className="w-4 h-4" />
             {new Date(date).toLocaleDateString('id-ID', {

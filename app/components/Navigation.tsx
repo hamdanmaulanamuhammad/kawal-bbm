@@ -37,11 +37,7 @@ export default function Navigation() {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled 
-            ? 'bg-white/95 backdrop-blur-lg shadow-xl' 
-            : 'bg-transparent'
-        }`}
+        className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white/95 backdrop-blur-lg shadow-xl"
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
@@ -56,10 +52,10 @@ export default function Navigation() {
                   <img src="/images/logo.png" alt="Logo" className="w-full h-full object-contain" />
                 </div>
                 <div>
-                  <h1 className={`text-2xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
+                  <h1 className="text-2xl font-bold text-gray-900">
                     KawalBBM
                   </h1>
-                  <p className={`text-xs ${scrolled ? 'text-gray-600' : 'text-white/80'}`}>
+                  <p className="text-xs text-gray-600">
                     Kawal Bahan Bakar Minyak
                   </p>
                 </div>
@@ -82,11 +78,7 @@ export default function Navigation() {
                       }}
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
-                      className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${
-                        scrolled
-                          ? 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
-                          : 'text-white hover:bg-white/20'
-                      }`}
+                      className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all text-gray-700 hover:bg-blue-50 hover:text-blue-600"
                     >
                       <item.icon className="w-4 h-4" />
                       {item.label}
@@ -96,11 +88,7 @@ export default function Navigation() {
                       <motion.div
                         whileHover={{ scale: 1.05, y: -2 }}
                         whileTap={{ scale: 0.95 }}
-                        className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${
-                          scrolled
-                            ? 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
-                            : 'text-white hover:bg-white/20'
-                        }`}
+                        className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all text-gray-700 hover:bg-blue-50 hover:text-blue-600"
                       >
                         <item.icon className="w-4 h-4" />
                         {item.label}
@@ -115,9 +103,7 @@ export default function Navigation() {
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
-              className={`md:hidden w-10 h-10 flex items-center justify-center rounded-lg ${
-                scrolled ? 'text-gray-900 hover:bg-gray-100' : 'text-white hover:bg-white/20'
-              }`}
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg text-gray-900 hover:bg-gray-100"
             >
               <motion.div
                 animate={{ rotate: isOpen ? 180 : 0 }}
